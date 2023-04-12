@@ -1,0 +1,27 @@
+<loading-spinner *ngIf="(isLoading | async)"></loading-spinner>
+
+<div *ngIf="!(isLoading | async)" class="form-container">
+    <h3>Login</h3>
+
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div class="input-container">
+            <label for="email">Email:</label>
+            <input class="auth-form__input" id="email" type="text" formControlName="email" placeholder="e-mail...">
+            <div class="auth-form__error-container" *ngIf="email.invalid && (email.touched || email.dirty)">
+                <p>Please enter a valid email</p>
+            </div>
+        </div>
+        
+        <div class="input-container">
+            <label for="password">Password:</label>
+            <input class="auth-form__input" id="password" type="password" formControlName="password" placeholder="password...">
+            <div class="auth-form__error-container" *ngIf="password.invalid && (password.touched || password.dirty)">
+                <p>Password must have at least 6 characters, and one numeric.</p>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <input class="auth-form__submit-button" [disabled]="loginForm.invalid" type="submit" value="SUBMIT">
+        </div>
+    </form>
+</div>

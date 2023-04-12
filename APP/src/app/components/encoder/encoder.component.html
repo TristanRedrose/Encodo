@@ -1,0 +1,23 @@
+<loading-spinner *ngIf="(isLoading | async)"></loading-spinner>
+
+<div *ngIf="!(isLoading | async)" class="encode-body">
+    <div *ngIf="!encodedData" class="encode-form-container">
+        <h3>Input string to encode</h3>
+    
+        <form class="encode-form" [formGroup]="encodeDataForm" (ngSubmit)="onSubmit()">
+            <div class="input-container">
+                
+                <input class="encode-form__input" id="data" type="text" formControlName="data" placeholder="data...">
+            </div>
+    
+            <div class="button-container">
+                <input class="encode-form__submit-button" [disabled]="encodeDataForm.invalid" type="submit" value="ENCODE">
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="encodedData" class="data-container">
+        <h3>Your encoded string is: <span class="data-text">{{ encodedData }}</span></h3>
+        <button class="encode-form__submit-button" (click)="onClick()">Try again</button>
+    </div>
+</div>

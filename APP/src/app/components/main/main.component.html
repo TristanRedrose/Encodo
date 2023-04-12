@@ -1,0 +1,16 @@
+<div class="main-body">
+    <nav class="main-navbar">
+        <a class="main-navbar__nav-link">ENCODO</a>
+        <a *ngIf="!(userLoggedIn | async)" class="main-navbar__nav-link main-navbar__nav-link--right" routerLink="" routerLinkActive="nav-active">
+            Login
+        </a>
+        <a *ngIf="(userLoggedIn | async)" class="main-navbar__nav-link main-navbar__nav-link--right" routerLinkActive="nav-active" (click)="logout()">
+            Logout
+        </a>
+    </nav>
+    
+    <div class="main-container">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+

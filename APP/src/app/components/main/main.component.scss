@@ -1,0 +1,45 @@
+@import '../../vars.scss';
+
+.main-body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-navbar {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background-color: $medium-gray;
+    color: $very-dark-blue;
+    padding: 0px 16px;
+}
+
+.main-navbar__nav-link {
+    text-decoration: none;
+
+    &:hover {
+        color: $orange;
+        cursor: pointer;
+    }
+
+    &.main-navbar__nav-link--right {
+        margin-left: auto;
+    }
+}
+
+
+
+.nav-active {
+    color: $orange;
+}
+
+.main-container {
+    flex: 1;
+    background-color: $very-dark-blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
